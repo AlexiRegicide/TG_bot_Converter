@@ -10,7 +10,7 @@ def convert_currency(text: str) -> str:
         amount = float(amount)
         # VETKA 
         if from_cur in HAHA or to_cur in HAHA:
-            return f"{amount} {from_cur} = {amount} {to_cur} (это шутка, братуха!)"
+            return f"{amount} {from_cur} = {amount} {to_cur} (мемасики не конвертируем!)"
         if from_cur in FIAT and to_cur in FIAT:
             rates = get_fiat_rates(from_cur)
             rate = rates.get(to_cur)

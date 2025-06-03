@@ -3,6 +3,8 @@ import requests
 # FIAT_API_URL = "https://api.exchangerate.host/latest"
 # CRYPTO_API_URL = "https://min-api.cryptocompare.com/data/price"
 
+
+# Для плавающих курсов берем API
 # def get_fiat_rates(base: str):
 #     response = requests.get(FIAT_API_URL, params={'base': base})
 #     data = response.json()
@@ -15,7 +17,6 @@ import requests
 #     return data.get(to_symbol)
 
 # Для теста возвращаем статичные курсы
-
 def get_fiat_rates(base: str):
     # Пример статичных курсов относительно базовой валюты
     static_rates = {
