@@ -1,0 +1,14 @@
+TEST/
+│
+├── bot.py                  # Точка входа, запуск Telegram-бота
+├── config.py               # Конфигурация: токены, ключи API
+├── requirements.txt        # Зависимости проекта
+│
+├── converter/
+│   ├── __init__.py
+│   ├── api.py              # Работа с внешним API курсов валют
+│   └── logic.py            # Логика конвертации
+│
+└── keyboards/
+    ├── __init__.py
+    └── keyboards.py      
