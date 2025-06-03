@@ -11,6 +11,7 @@ def convert_currency(text: str) -> str:
         # VETKA 
         if from_cur in HAHA or to_cur in HAHA:
             return f"{amount} {from_cur} = {amount} {to_cur} (Мемасики тоже конвертируем!)"
+        # Проверка на валидность валют
         if from_cur in FIAT and to_cur in FIAT:
             rates = get_fiat_rates(from_cur)
             rate = rates.get(to_cur)
@@ -22,7 +23,7 @@ def convert_currency(text: str) -> str:
                 rates = get_fiat_rates(from_cur)
                 usd_rate = rates.get('USD')
                 if not usd_rate:
-                    return "Ошибка получения курса №1."
+                    return f"Ошибка конвертации: не удалось получить курс {from_cur} в USD."
                 amount_in_usd = amount * usd_rate
             else:
                 amount_in_usd = amount
@@ -33,18 +34,18 @@ def convert_currency(text: str) -> str:
             # Сначала переводим в USD, потом в нужную крипту
             usd = get_crypto_rate(from_cur, 'USD')
             if not usd:
-                return "Ошибка получения курса №2."
+                return f"Ошибка коневертации: не удалось получить курс {from_cur} в USD."
             rate = get_crypto_rate('USD', to_cur)
             if not rate:
-                return "Ошибка получения курса №3."
+                return f"Ошибка получения курса {to_cur} из USD."
             result = amount * usd / rate
             return f"{amount} {from_cur} = {result:.6f} {to_cur}"
         else:
-            return "Валюта не поддерживается №5."
+            return f"Валюта {to_cur} и/или {from_cur} не поддерживается."
         if not rate:
-            return "Ошибка получения курса №6."
+            return f"Ошибка получения курса."
         result = amount * rate
         return f"{amount} {from_cur} = {result:.6f} {to_cur}"
     except Exception:
-        return "Введите запрос в формате: 100 USD RUB или 100 BTC ETH."
+        return "Все сломалось. Попробуйте заново. Введите запрос в формате: 100 USD RUB или 100 BTC ETH."
 # Если возникла ошибка, возвращаем сообщение об ошибке
