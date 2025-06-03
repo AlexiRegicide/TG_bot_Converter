@@ -6,7 +6,7 @@ def get_main_keyboard():
         [KeyboardButton('Курс валют'), KeyboardButton('Конвертировать')],
         [KeyboardButton('Назад'), KeyboardButton('Главная'), KeyboardButton('Отмена')],
         [KeyboardButton('О боте'), KeyboardButton('О разработчике')],
-        [KeyboardButton('Стоп'), KeyboardButton('Выход')]
+        [KeyboardButton('Выход')]
     ]
     markup = ReplyKeyboardMarkup(resize_keyboard=True)
     for row in buttons:

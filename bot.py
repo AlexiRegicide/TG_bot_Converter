@@ -5,26 +5,6 @@ from keyboards.keyboards import get_main_keyboard
 
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
-# @bot.message_handler(commands=['Start'])
-# def start_message(message):
-#     bot.send_message(
-#         message.chat.id,
-#         "Привет! Ты получил зарплату не веткой? Могу помочь с конвертацией валют: USD, EUR, RUB, KZT, ETH, BTC. Какой курс тебя интересует?",
-#         reply_markup=get_main_keyboard()
-#     )
-
-# @bot.message_handler(commands=['start'])
-# def start_command(message):
-#     bot.send_message(
-#         message.chat.id,
-#         "Формат ввода данных **100 VETKA USD**.",
-#         reply_markup=get_main_keyboard()
-#     )
-
-# @bot.message_handler(func=lambda m: m.text == 'stop')
-# def shutdown(message):
-#     bot.send_message(message.chat.id, "Всего хорошего, возвращайся с новыми страданиями!")
-
 @bot.message_handler(content_types=['text'])
 def handle_message(message):
     text = message.text
@@ -78,7 +58,7 @@ def handle_message(message):
             message.chat.id,
             "Разработчик: @usagi_regicide. Если у вас есть вопросы или предложения, пишите мне!"
         )
-    elif text == 'Стоп' or text == 'Выход':
+    elif text == 'Выход':
         bot.send_message(
             message.chat.id,
             "Всего хорошего!",

@@ -3,7 +3,6 @@ import requests
 # FIAT_API_URL = "https://api.exchangerate.host/latest"
 # CRYPTO_API_URL = "https://min-api.cryptocompare.com/data/price"
 
-
 # Для плавающих курсов берем API
 # def get_fiat_rates(base: str):
 #     response = requests.get(FIAT_API_URL, params={'base': base})
@@ -26,7 +25,7 @@ def get_fiat_rates(base: str):
         'KZT': {'USD': 0.0022, 'EUR': 0.0020, 'RUB': 0.20, 'CNY': 0.016, 'INR': 0.18, 'KZT': 1.0},
         'CNY': {'USD': 0.14, 'EUR': 0.13, 'RUB': 12.3, 'KZT': 62.5, 'INR': 11.5, 'CNY': 1.0},
         'INR': {'USD': 0.012, 'EUR': 0.011, 'RUB': 1.08, 'KZT': 5.6, 'CNY': 0.087, 'INR': 1.0},
-        'VETKA': {'USD': 1.0, 'EUR': 1.0, 'RUB': 1.0, 'KZT': 1.0, 'CNY': 1.0, 'INR': 1.0, 'VETKA': 1.0},
+        'VETKA': {'USD': 1.0, 'EUR': 1.0, 'RUB': 1.0, 'KZT': 1.0, 'CNY': 1.0, 'INR': 1.0, 'VETKA': 2.0},
     }
     return static_rates.get(base, {})
 
